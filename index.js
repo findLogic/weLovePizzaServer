@@ -4,7 +4,10 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
+
+const http = require('http');
 const app = express();
+const server = http.createServer(app)
 
 // Use Node.js body parsing middleware
 app.use(cors());
@@ -18,8 +21,9 @@ app.use(
 routes(app);
 
 // Start the server
-const server = app.listen(PORT, (error) => {
-  // if (error) return console.log(`Error: ${error}`);
+server.listen(PORT, (error) => {
+  if (error) return console.log(`Error: ${error}`);
 
   console.log(`Server listening on port ${server.address().port}`);
 });
+
