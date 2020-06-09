@@ -19,7 +19,7 @@ routes(app);
 
 // Start the server
 const server = app.listen(PORT, (error) => {
-  if (error) return console.log(`Error: ${error}`);
+  // if (error) return console.log(`Error: ${error}`);
 
   console.log(`Server listening on port ${server.address().port}`);
 });
